@@ -1016,6 +1016,8 @@ strings:
     reserved_word: true
   - str: "with"
     reserved_word: true
+  - str: "let"
+    reserved_word: true
 
   # Future reserved word
 
@@ -1068,10 +1070,6 @@ strings:
     future_reserved_word: true
     future_reserved_word_strict: true
   - str: "interface"
-    reserved_word: true
-    future_reserved_word: true
-    future_reserved_word_strict: true
-  - str: "let"
     reserved_word: true
     future_reserved_word: true
     future_reserved_word_strict: true
@@ -1130,6 +1128,7 @@ reserved_word_token_order:
   - "void"
   - "while"
   - "with"
+  - "let"
   - "class"
   - "enum"
   - "export"
@@ -1141,7 +1140,6 @@ reserved_word_token_order:
   - "false"
   - "implements"
   - "interface"
-  - "let"
   - "package"
   - "private"
   - "protected"

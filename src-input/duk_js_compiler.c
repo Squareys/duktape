@@ -325,6 +325,7 @@ DUK_LOCAL const duk_uint8_t duk__token_lbp[] = {
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_VOID */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_WHILE */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_WITH */
+	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_LET */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_CLASS */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_ENUM */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_EXPORT */
@@ -338,7 +339,6 @@ DUK_LOCAL const duk_uint8_t duk__token_lbp[] = {
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_SET */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_IMPLEMENTS */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_INTERFACE */
-	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_LET */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_PACKAGE */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_PRIVATE */
 	DUK__MK_LBP(DUK__BP_INVALID),                             /* DUK_TOK_PROTECTED */
@@ -6463,6 +6463,12 @@ DUK_LOCAL void duk__parse_stmt(duk_compiler_ctx *comp_ctx, duk_ivalue *res, duk_
 	case DUK_TOK_CONST: {
 		DUK_DDD(DUK_DDDPRINT("constant declaration statement"));
 		duk__parse_var_stmt(comp_ctx, res, DUK__EXPR_FLAG_REQUIRE_INIT /*expr_flags*/);
+		stmt_flags = DUK__HAS_TERM;
+		break;
+	}
+	case DUK_TOK_LET: {
+		DUK_DDD(DUK_DDDPRINT("let scope declaration statement"));
+		duk__parse_var_stmt(comp_ctx, res, 0 /*expr_flags*/);
 		stmt_flags = DUK__HAS_TERM;
 		break;
 	}
