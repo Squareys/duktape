@@ -75,27 +75,27 @@ typedef void (*duk_re_range_callback)(void *user, duk_codepoint_t r1, duk_codepo
 #define DUK_TOK_VOID                              26
 #define DUK_TOK_WHILE                             27
 #define DUK_TOK_WITH                              28
+#define DUK_TOK_LET                               29
 
 /* reserved words: future reserved words */
-#define DUK_TOK_CLASS                             29
-#define DUK_TOK_ENUM                              30
-#define DUK_TOK_EXPORT                            31
-#define DUK_TOK_EXTENDS                           32
-#define DUK_TOK_IMPORT                            33
-#define DUK_TOK_SUPER                             34
+#define DUK_TOK_CLASS                             30
+#define DUK_TOK_ENUM                              31
+#define DUK_TOK_EXPORT                            32
+#define DUK_TOK_EXTENDS                           33
+#define DUK_TOK_IMPORT                            34
+#define DUK_TOK_SUPER                             35
 
 /* "null", "true", and "false" are always reserved words.
  * Note that "get" and "set" are not!
  */
-#define DUK_TOK_NULL                              35
-#define DUK_TOK_TRUE                              36
-#define DUK_TOK_FALSE                             37
+#define DUK_TOK_NULL                              36
+#define DUK_TOK_TRUE                              37
+#define DUK_TOK_FALSE                             38
 
 /* reserved words: additional future reserved words in strict mode */
-#define DUK_TOK_START_STRICT_RESERVED             38  /* inclusive */
-#define DUK_TOK_IMPLEMENTS                        38
-#define DUK_TOK_INTERFACE                         39
-#define DUK_TOK_LET                               40
+#define DUK_TOK_START_STRICT_RESERVED             39  /* inclusive */
+#define DUK_TOK_IMPLEMENTS                        39
+#define DUK_TOK_INTERFACE                         40
 #define DUK_TOK_PACKAGE                           41
 #define DUK_TOK_PRIVATE                           42
 #define DUK_TOK_PROTECTED                         43
@@ -261,6 +261,9 @@ typedef void (*duk_re_range_callback)(void *user, duk_codepoint_t r1, duk_codepo
 #if (DUK_STRIDX_TO_TOK(DUK_STRIDX_WITH) != DUK_TOK_WITH)
 #error mismatch in token defines
 #endif
+#if (DUK_STRIDX_TO_TOK(DUK_STRIDX_LET) != DUK_TOK_LET)
+#error mismatch in token defines
+#endif
 #if (DUK_STRIDX_TO_TOK(DUK_STRIDX_CLASS) != DUK_TOK_CLASS)
 #error mismatch in token defines
 #endif
@@ -295,9 +298,6 @@ typedef void (*duk_re_range_callback)(void *user, duk_codepoint_t r1, duk_codepo
 #error mismatch in token defines
 #endif
 #if (DUK_STRIDX_TO_TOK(DUK_STRIDX_INTERFACE) != DUK_TOK_INTERFACE)
-#error mismatch in token defines
-#endif
-#if (DUK_STRIDX_TO_TOK(DUK_STRIDX_LET) != DUK_TOK_LET)
 #error mismatch in token defines
 #endif
 #if (DUK_STRIDX_TO_TOK(DUK_STRIDX_PACKAGE) != DUK_TOK_PACKAGE)
