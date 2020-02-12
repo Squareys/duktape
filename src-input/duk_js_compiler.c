@@ -5205,7 +5205,7 @@ DUK_LOCAL void duk__parse_for_stmt(duk_compiler_ctx *comp_ctx, duk_ivalue *res, 
 	 * (it will also emit the ENDLABEL).
 	 */
 
-	if (comp_ctx->curr_token.t == DUK_TOK_VAR) {
+	if (comp_ctx->curr_token.t == DUK_TOK_VAR || comp_ctx->curr_token.t == DUK_TOK_LET) {
 		/*
 		 *  Variant 2 or 4
 		 */
